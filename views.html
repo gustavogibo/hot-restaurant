@@ -19,8 +19,8 @@
         <div class="jumbotron text-center">
             <h1 class="display-4 ">Hot Restaurant</h1>
             <p class="lead">Current Reservations and Waiting List</p>
-            <a class="btn btn-primary btn-lg" href="/form" role="button">Make Reservation</a>
-            <a class="btn btn-primary btn-lg" href="/index" role="button">Home</a>
+            <a class="btn btn-primary btn-lg" href="/reserve" role="button">Make Reservation</a>
+            <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
         </div>
 
         <!-- CARD -->
@@ -45,7 +45,7 @@
     </div>
     <script type="text/javascript">
 
-        $.get("/list", function (data) {
+        $.get("/tableReservations", function (data) {
             for (var i = 0; i < data.length; i++) {
                 var tableReservation = $("<div>");
                 tableReservation.addClass("table-reservation");
@@ -59,7 +59,7 @@
             }
         });
 
-         $.get("/list", function (data) {
+        $.get("/waitReservations", function (data) {
             for (var i = 0; i < data.length; i++) {
                 var tableReservation = $("<div>");
                 tableReservation.addClass("table-reservation");
