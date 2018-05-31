@@ -28,13 +28,14 @@
             <div class="card-header">
                 Current Reservations
             </div>
-            <div class="card-body">
+            <div class="card-body" id="table">
 
             </div>
         </div>
-        <br><br>
+        <br>
+        <br>
         <div class="card">
-            <div class="card-header">
+            <div class="card-header" id="wait">
                 Waiting List
             </div>
             <div class="card-body">
@@ -42,6 +43,36 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+
+        $.get("/list", function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var tableReservation = $("<div>");
+                tableReservation.addClass("table-reservation");
+                tableReservation.attr("id", "table-" + i);
+                $("#table").append(tableReservation);
+
+                $("#table-" + i).append("<h2>" + data[i].name + "</h2>");
+                $("#table-" + i).append("<h3>Role: " + data[i].phone + "</h4>");
+                $("#table-" + i).append("<h3>Age: " + data[i].email + "</h4>");
+                $("#table-" + i).append("<h3>Force Points: " + data[i].id + "</h4>");
+            }
+        });
+
+         $.get("/list", function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var tableReservation = $("<div>");
+                tableReservation.addClass("table-reservation");
+                tableReservation.attr("id", "table-" + i);
+                $("#wait").append(tableReservation);
+
+                $("#table-" + i).append("<h2>" + data[i].name + "</h2>");
+                $("#table-" + i).append("<h3>Role: " + data[i].phone + "</h4>");
+                $("#table-" + i).append("<h3>Age: " + data[i].email + "</h4>");
+                $("#table-" + i).append("<h3>Force Points: " + data[i].id + "</h4>");
+            }
+        });
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
