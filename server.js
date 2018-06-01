@@ -13,6 +13,12 @@ var tableList = [{
     phone:"000-000-0000",
     email:"test@chickens.com",
     id:10
+},
+{
+    name:"chicken2",
+    phone:"000-000-0000",
+    email:"test@chickens.com",
+    id:10
 }];
 
 var waitList = [{
@@ -65,12 +71,11 @@ app.post("/action/reserve", function(req, res) {
     if(tableList.length < 5) {
 
         tableList.push(newReservation);
-        alert("You are on the table list! We will call you soon, thanks!");
+        
 
     } else {
 
         waitList.push(newReservation);
-        alert("Sorry, we are busy today! We put you on a waiting list, we'll call you soon!");
     }
 
   });
