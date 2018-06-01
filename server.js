@@ -61,6 +61,16 @@ app.get("/json/waitjson", function(req, res) {
     return res.json(waitList);
 });
 
+//Clear tables
+app.get("/action/cleartables", function (req, res) {
+
+    tableList.length = 0;
+    waitList.length = 0;
+
+    res.sendFile(path.join(__dirname, "index.html"));
+
+});
+
 app.post("/action/reserve", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
