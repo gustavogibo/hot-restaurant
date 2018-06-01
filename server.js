@@ -52,12 +52,12 @@ app.get("/waitReservations", function(req, res) {
 });
 
 // Displays all wait reservations
-app.get("/tablejson", function(req, res) {
+app.get("/json/tablejson", function(req, res) {
     return res.json(tableList);
 });
 
 // Displays all wait reservations
-app.get("/waitjson", function(req, res) {
+app.get("/json/waitjson", function(req, res) {
     return res.json(waitList);
 });
 
@@ -65,17 +65,16 @@ app.post("/action/reserve", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
     var newReservation = req.body;
-  
-    console.log(newReservation);
 
     if(tableList.length < 5) {
 
         tableList.push(newReservation);
-        
+        return res.json(1);
 
     } else {
 
         waitList.push(newReservation);
+        return res.json(2);
     }
 
   });
