@@ -69,12 +69,20 @@
                 email: $("#email").val().trim(),
                 id: $("#uniqueID").val().trim()
             };
-            console.log(newReservation);
+            
             // Question: What does this code do??
             $.post("/action/reserve", newReservation)
                 .then(function (data) {
-                    console.log(data);
-                    // alert("Adding your reservation.");
+                    
+                    if(data == 1) {
+
+                        alert("Adding you to the table list!");
+
+                    } else {
+
+                        alert("Adding you to the waitlist!");
+
+                    }
                 });
 
         });
