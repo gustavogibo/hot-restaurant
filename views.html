@@ -9,7 +9,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <title>Tables Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -54,24 +53,27 @@
                 $("#table").append(tableReservation);
 
                 $("#table-" + i).append("<h2>" + data[i].name + "</h2>");
-                $("#table-" + i).append("<h3>Role: " + data[i].phone + "</h4>");
-                $("#table-" + i).append("<h3>Age: " + data[i].email + "</h4>");
-                $("#table-" + i).append("<h3>Force Points: " + data[i].id + "</h4>");
+                $("#table-" + i).append("<h3>Phone: " + data[i].phone + "</h4>");
+                $("#table-" + i).append("<h3>Email: " + data[i].email + "</h4>");
+                $("#table-" + i).append("<br>");
             }
         });
 
         $.get("/waitReservations", function (data) {
             for (var i = 0; i < data.length; i++) {
-                var tableReservation = $("<div>");
-                tableReservation.addClass("table-reservation");
-                tableReservation.attr("id", "table-" + i);
-                $("#wait").append(tableReservation);
+                var tableReservation1 = $("<div>");
+                tableReservation1.addClass("table-reservation2");
+                tableReservation1.attr("id", "table-res" + i);
 
-                $("#table-" + i).append("<h2>" + data[i].name + "</h2>");
-                $("#table-" + i).append("<h3>Role: " + data[i].phone + "</h4>");
-                $("#table-" + i).append("<h3>Age: " + data[i].email + "</h4>");
-                $("#table-" + i).append("<h3>Force Points: " + data[i].id + "</h4>");
+                $(tableReservation1).append("<h2>" + data[i].name + "</h2>");
+                $(tableReservation1).append("<h3>Phone: " + data[i].phone + "</h4>");
+                $(tableReservation1).append("<h3>Email: " + data[i].email + "</h4>");
+                $(tableReservation1).append("<br>");
+
+                $("#wait").append(tableReservation1);    
+                
             }
+            
         });
     </script>
 
